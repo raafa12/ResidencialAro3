@@ -1,0 +1,96 @@
+---
+// src/components/Section.astro
+interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  fullWidth?: boolean;
+  padding?: string;
+  className?: string;
+}
+
+const { 
+  id = '',
+  title = '',
+  subtitle = '',
+  fullWidth = false,
+  padding = 'py-24',
+  className = ''
+} = Astro.props;
+---
+
+<section 
+  id={id}
+  class:list={[
+    'relative overflow-hidden',
+    padding,
+    className
+  ]}
+>
+  <div class:list={[
+    'mx-auto px-6',
+    fullWidth ? 'max-w-full' : 'max-w-7xl',
+    'w-full'
+  ]}>
+    {title && (
+      <div class="mb-12 text-center">
+        {subtitle && (
+          <p class="text-sm font-medium tracking-wider text-primary uppercase mb-3">
+            {subtitle}
+          </p>
+        )}
+        <h2 class="text-4xl md:text-5xl font-light tracking-tight text-gray-900">
+          {title}
+        </h2>
+        <div class="w-16 h-0.5 bg-primary mx-auto mt-6"></div>
+      </div>
+    )}
+    <div class="content">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    scroll-margin-top: 100px;
+  }
+  
+  .content > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  .content > * + h2,
+  .content > * + h3,
+  .content > * + h4 {
+    margin-top: 2.5rem;
+  }
+  
+  .content p {
+    @apply text-gray-600 leading-relaxed;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .content a:not(.btn) {
+    @apply text-primary border-b border-primary/30 hover:border-primary/80 transition-colors;
+  }
+  
+  .content img {
+    @apply rounded-lg shadow-xl w-full h-auto;
+  }
+  
+  @media (max-width: 768px) {
+    section {
+      scroll-margin-top: 80px;
+    }
+    
+    .content p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+  }
+</style>

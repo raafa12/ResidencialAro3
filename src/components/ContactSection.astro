@@ -1,0 +1,98 @@
+---
+// src/components/ContactSection.astro
+---
+
+<section id="contacto" class="section contact">
+  <div class="fade-in">
+    <h2>Información</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <h4>Ubicación</h4>
+        <p>Calle Aro 3<br>39740 Santoña<br>Cantabria</p>
+      </div>
+      <div class="contact-item">
+        <h4>Promotor</h4>
+        <p>Desarrollos Singulares<br>del Norte, S.L.</p>
+      </div>
+      <div class="contact-item">
+        <h4>Proyecto</h4>
+        <p>8 Viviendas<br>2 Locales Comerciales<br>Rehabilitación integral</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background: var(--cream);
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding: 100px 20px;
+  }
+
+  .contact h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-item h4 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+
+  .contact-item p {
+    color: var(--text-secondary);
+    font-weight: 300;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 1024px) {
+    .contact {
+      padding: 80px 20px;
+    }
+    
+    .contact-grid {
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact h2 {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+    }
+    
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 400px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact h2 {
+      font-size: 2rem;
+    }
+    
+    .contact-item p {
+      font-size: 0.9rem;
+    }
+  }
+</style>

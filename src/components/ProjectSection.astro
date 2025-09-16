@@ -1,0 +1,133 @@
+---
+// src/components/ProjectSection.astro
+---
+
+<section id="proyecto" class="section intro">
+  <div class="intro-content fade-in">
+    <h2>Patrimonio y modernidad<br>en perfecta armonía</h2>
+    <p>En el corazón de Santoña, junto al Ayuntamiento y la histórica Plaza de San Antonio, recuperamos un edificio centenario para crear ocho viviendas únicas y dos locales comerciales. Un proyecto que combina la riqueza patrimonial con las más altas calidades constructivas contemporáneas.</p>
+  </div>
+</section>
+
+<section id="caracteristicas" class="section features">
+  <div class="features-grid">
+    <div class="feature fade-in">
+      <div class="feature-number">01</div>
+      <div class="feature-content">
+        <h3>Ubicación Excepcional</h3>
+        <p>En pleno centro histórico, a pasos del Ayuntamiento, Plaza de San Antonio y Palacio de Manzanedo. Un enclave único en la villa marinera más auténtica de Cantabria.</p>
+      </div>
+    </div>
+    <div class="feature fade-in">
+      <div class="feature-number">02</div>
+      <div class="feature-content">
+        <h3>Rehabilitación Cuidada</h3>
+        <p>Recuperación integral respetando materiales originales: tejas históricas, rejerías y elementos constructivos tradicionales combinados con tecnología actual.</p>
+      </div>
+    </div>
+    <div class="feature fade-in">
+      <div class="feature-number">03</div>
+      <div class="feature-content">
+        <h3>Viviendas Singulares</h3>
+        <p>Ocho viviendas de 2 y 3 dormitorios con techos de gran altura, cocinas integradas y amplios miradores que recuperan la fachada señorial original.</p>
+      </div>
+    </div>
+    <div class="feature fade-in">
+      <div class="feature-number">04</div>
+      <div class="feature-content">
+        <h3>Espacios Comunitarios</h3>
+        <p>Patio interior rehabilitado que ofrece un oasis de tranquilidad en el centro urbano, perfecto para el encuentro y las actividades comunitarias.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro {
+    text-align: center;
+    background: var(--white);
+  }
+
+  .intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .intro h2 {
+    font-size: 3.2rem;
+    color: var(--dark);
+    margin-bottom: 3rem;
+    line-height: 1.2;
+    letter-spacing: -1px;
+  }
+
+  .intro p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+
+  .features {
+    background: var(--light);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px 40px;
+    margin-top: 60px;
+  }
+
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .feature-number {
+    font-size: 3rem;
+    color: var(--primary);
+    font-weight: 300;
+    opacity: 0.4;
+    line-height: 1;
+    min-width: 60px;
+  }
+
+  .feature-content h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    letter-spacing: -0.3px;
+  }
+
+  .feature-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-weight: 300;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .intro h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    
+    .feature {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .feature-number {
+      font-size: 2.5rem;
+    }
+  }
+</style>

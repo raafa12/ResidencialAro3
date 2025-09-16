@@ -1,0 +1,40 @@
+---
+// src/components/Footer.astro
+---
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>© 2024 Desarrollos Singulares del Norte, S.L. — Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--white);
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: 30px 20px;
+    }
+    
+    .footer p {
+      font-size: 0.8rem;
+    }
+  }
+</style>

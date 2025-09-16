@@ -1,0 +1,63 @@
+---
+// src/pages/proyecto.astro
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import AboutSection from '../components/AboutSection.astro';
+
+const pageTitle = 'Proyecto';
+const pageDescription = 'Conoce el proyecto de rehabilitación del edificio ARO 3 en el corazón de Santoña';
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <main>
+    <!-- Hero Section -->
+    <Hero 
+      title="ARO 3"
+      subtitle="Santoña"
+      description="Un edificio histórico en el corazón de Santoña"
+      ctaText="Descubre más"
+      ctaLink="#sobre-el-proyecto"
+    />
+    
+    <!-- About Section -->
+    <AboutSection />
+    
+    <!-- Additional sections can be added here -->
+  </main>
+</Layout>
+
+<style>
+  /* Add any page-specific styles here */
+  main {
+    overflow-x: hidden;
+  }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Animation for content appearance */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+</style>

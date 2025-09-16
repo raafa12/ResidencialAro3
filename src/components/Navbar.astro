@@ -1,0 +1,297 @@
+---
+// src/components/Navbar.astro
+---
+
+<nav id="navbar" class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="logo">
+      ARO 3
+    </a>
+    
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="#proyecto" class="nav-link">Proyecto</a>
+      </li>
+      <li class="nav-item">
+        <a href="#galeria" class="nav-link">Galería</a>
+      </li>
+      <li class="nav-item">
+        <a href="#ubicacion" class="nav-link">Ubicación</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contacto" class="nav-link btn btn-outline">Contacto</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 2rem 0;
+    transition: all 0.4s ease;
+    background: transparent;
+  }
+
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.2rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .scrolled .logo {
+    color: var(--primary);
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    margin-left: 4rem;
+  }
+
+  .nav-link {
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .scrolled .nav-link {
+    color: var(--text-primary);
+  }
+
+  .nav-link:not(.btn-outline):after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--white);
+    transition: width 0.3s ease;
+  }
+
+  .scrolled .nav-link:not(.btn-outline):after {
+    background-color: var(--primary);
+  }
+
+  .nav-link:hover:not(.btn-outline) {
+    color: var(--white);
+  }
+
+  .scrolled .nav-link:hover:not(.btn-outline) {
+    color: var(--primary);
+  }
+
+  .nav-link:hover:not(.btn-outline):after {
+    width: 100%;
+  }
+
+  .btn-outline {
+    border: 1px solid var(--white);
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    background: var(--white);
+    color: var(--primary) !important;
+  }
+
+  .scrolled .btn-outline {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .scrolled .btn-outline:hover {
+    background: var(--primary);
+    color: var(--white) !important;
+  }
+
+  /* Mobile menu */
+  .menu-toggle {
+    display: none;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .menu-toggle span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: var(--white);
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+
+  .scrolled .menu-toggle span {
+    background: var(--primary);
+  }
+
+  .menu-toggle span:nth-child(1) {
+    top: 0;
+  }
+
+  .menu-toggle span:nth-child(2),
+  .menu-toggle span:nth-child(3) {
+    top: 9px;
+  }
+
+  .menu-toggle span:nth-child(4) {
+    top: 18px;
+  }
+
+  .menu-toggle.open span:nth-child(1),
+  .menu-toggle.open span:nth-child(4) {
+    top: 9px;
+    width: 0%;
+    left: 50%;
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  @media (max-width: 1024px) {
+    .navbar-container {
+      padding: 0 3rem;
+    }
+    
+    .nav-item {
+      margin-left: 2.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      flex-direction: column;
+      width: 80%;
+      height: 100vh;
+      padding: 8rem 3rem;
+      background: var(--white);
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      transition: right 0.5s ease;
+      z-index: 1000;
+    }
+
+    .nav-menu.active {
+      right: 0;
+    }
+
+    .nav-item {
+      margin: 1.5rem 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-link {
+      color: var(--text-primary) !important;
+      font-size: 1.6rem;
+      padding: 1rem 0;
+      display: block;
+    }
+
+    .btn-outline {
+      border-color: var(--primary);
+      color: var(--primary) !important;
+      margin-top: 2rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white) !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .navbar-container {
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('open');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navMenu.classList.contains('active')) {
+            menuToggle.classList.remove('open');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+    }
+  });
+</script>

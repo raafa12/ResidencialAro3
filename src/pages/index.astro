@@ -1,11 +1,71 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import AboutSection from '../components/AboutSection.astro';
+import ProjectSection from '../components/ProjectSection.astro';
+import GallerySection from '../components/GallerySection.astro';
+import LocationSection from '../components/LocationSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Import global styles
+import '../styles/global.css';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Inicio">
+  <Navbar />
+  <main class="text-gray-800 bg-white">
+    <Hero 
+      title="ARO 3"
+      subtitle="Santoña"
+      description="Un edificio histórico en el corazón de Santoña"
+      ctaText="Descubre más"
+      ctaLink="#sobre-el-proyecto"
+    />
+    
+    <AboutSection />
+    <ProjectSection />
+    <GallerySection />
+    <LocationSection />
+    <ContactSection />
+  </main>
+  <Footer />
 </Layout>
+
+<style>
+  /* Ensure smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Reset some default styles */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--gray-800);
+  }
+  
+  /* Container for content */
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  /* Section spacing */
+  section {
+    padding: 6rem 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    section {
+      padding: 4rem 0;
+    }
+  }
+</style>
