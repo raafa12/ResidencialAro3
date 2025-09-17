@@ -2,183 +2,352 @@
 // src/components/SantonaSection.astro
 ---
 
-<section id="santona" class="section santona-section">
+<section id="santona-info" class="section location">
   <div class="container">
-    <div class="santona-grid">
-      <div class="santona-content fade-in">
-        <div class="section-header">
-          <span class="section-tag">Santoña</span>
-          <h2>Villa marinera entre el mar y las marismas</h2>
-        </div>
-        <p class="santona-description">
-          Santoña, cabeza de las históricas Siete Villas de la Mar, se encuentra enclavada entre el Mar Cantábrico y las marismas. 
-          Su rico patrimonio abarca desde la iglesia románica de Santa María del Puerto hasta las imponentes fortificaciones que 
-          defendían su costa a lo largo de la historia.
-        </p>
-        <p class="santona-description">
-          Reconocida mundialmente por sus exquisitas anchoas artesanales, Santoña ofrece un entorno natural excepcional 
-          para la práctica de deportes náuticos como la vela y el surf, además de disfrutar de playas únicas de gran belleza.
-        </p>
-        <div class="features-grid">
-          <div class="feature-item">
-            <div class="feature-icon">🏛️</div>
-            <h3>Centro histórico</h3>
-            <p>Descubre la rica historia que se esconde en cada rincón de la villa.</p>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">🏰</div>
-            <h3>Patrimonio cultural</h3>
-            <p>Explora monumentos y edificios que cuentan siglos de historia.</p>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">🍽️</div>
-            <h3>Gastronomía marina</h3>
-            <p>Disfruta de la mejor cocina marinera con productos locales.</p>
-          </div>
-        </div>
+    <div class="location-content fade-in">
+      <div class="location-header">
+        <span class="section-tag light">La Villa</span>
+        <h2>Santoña</h2>
       </div>
-      <div class="santona-image fade-in" data-delay="0.2">
-        <img 
-          src="/images/santona-panorama.jpg" 
-          alt="Vista panorámica de Santoña"
-          class="santona-main-image"
-        />
+      <div class="location-text">
+        <p>Villa marinera enclavada entre el Mar Cantábrico y las marismas, Santoña es cabeza de las históricas Siete Villas de la Mar. Su patrimonio se extiende desde la iglesia románica de Santa María del Puerto hasta las fortificaciones que defendían su costa.</p>
+        <p>Mundialmente reconocida por sus anchoas artesanales, ofrece un entorno natural excepcional para la vela, el surf y el disfrute de playas únicas.</p>
+      </div>
+    </div>
+    <div class="location-highlights fade-in" data-delay="0.3">
+      <div class="highlight">
+        <div class="highlight-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span>Centro histórico</span>
+      </div>
+      <div class="highlight">
+        <div class="highlight-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12h18m-9-9l9 9-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span>Patrimonio cultural</span>
+      </div>
+      <div class="highlight">
+        <div class="highlight-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.5 19H9a7 7 0 117 7 7 7 0 01-7-7v-11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>Gastronomía marina</span>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .santona-section {
-    padding: 100px 0;
-    background-color: #f9f9f9;
+  .features-showcase {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
-  .santona-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+  .features-image {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+  }
+
+  .features-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .features-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
     align-items: center;
+    justify-content: center;
   }
 
-  .santona-content {
-    max-width: 600px;
+  .features-content {
+    max-width: 800px;
+    padding: 0 2rem;
+    color: white;
+    text-align: center;
   }
 
-  .section-header {
-    margin-bottom: 40px;
+  .features-content h2 {
+    font-size: 4.8rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 0 0 2rem 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: -0.01em;
   }
 
-  .section-tag {
+  .features-content p {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    margin: 0 auto 2rem;
+    max-width: 700px;
+    font-weight: 300;
+  }
+
+  /* Location section styles - copied from ProjectSection */
+  .location {
+    background: var(--primary-darker);
+    color: var(--white);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .location::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary-dark) 100%);
+    opacity: 0.9;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  .location-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .location-header {
+    position: relative;
+    display: inline-block;
+  }
+
+  .location-header h2 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -1px;
+    color: var(--white);
+  }
+
+  .section-tag.light {
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
     display: block;
+    margin-bottom: 1.5rem;
     font-size: 1.1rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: var(--primary, #2c3e50);
-    margin-bottom: 15px;
   }
 
-  .santona-section h2 {
-    font-size: 2.8rem;
-    font-weight: 300;
-    color: var(--dark, #111);
-    margin: 0 0 1.5rem 0;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
+  .section-tag.light::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--white);
   }
 
-  .santona-description {
-    font-size: 1.1rem;
+  .location-text {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .location-text p {
+    font-size: 1.15rem;
     line-height: 1.8;
-    color: var(--gray-600, #555);
-    margin-bottom: 2rem;
+    opacity: 0.95;
     font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: var(--white);
   }
 
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 40px;
+  .location-text p:last-child {
+    margin-bottom: 0;
   }
 
-  .feature-item {
-    padding: 25px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  }
-
-  .feature-icon {
-    font-size: 2rem;
-    margin-bottom: 15px;
-  }
-
-  .feature-item h3 {
-    font-size: 1.1rem;
-    margin: 0 0 10px 0;
-    color: var(--dark, #111);
-  }
-
-  .feature-item p {
-    font-size: 0.95rem;
-    color: var(--gray-600, #666);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .santona-image {
+  .location-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
     position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    z-index: 2;
   }
 
-  .santona-main-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
+  .highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
   }
 
-  .santona-image:hover .santona-main-image {
-    transform: scale(1.03);
+  .highlight:hover {
+    opacity: 1;
+    transform: translateY(-2px);
   }
 
-  /* Responsive styles */
+  .highlight-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .highlight:hover .highlight-icon {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+
+  .highlight span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--white);
+    text-align: center;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .fade-in.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   @media (max-width: 1024px) {
-    .santona-grid {
-      grid-template-columns: 1fr;
+    .features-content h2 {
+      font-size: 4rem;
+    }
+    
+    .features-content p {
+      font-size: 1.6rem;
+      max-width: 600px;
+    }
+
+    .container {
+      padding: 0 40px;
+    }
+    
+    .location-highlights {
       gap: 40px;
-    }
-
-    .santona-content {
-      max-width: 100%;
-    }
-
-    .features-grid {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 768px) {
-    .santona-section {
-      padding: 70px 0;
+    .features-image {
+      height: 70vh;
+      min-height: 500px;
+    }
+    
+    .features-content h2 {
+      font-size: 3.2rem;
+    }
+    
+    .features-content p {
+      font-size: 1.4rem;
+      max-width: 500px;
     }
 
-    .santona-section h2 {
-      font-size: 2.2rem;
+    .location {
+      padding: 80px 0;
     }
 
-    .features-grid {
-      grid-template-columns: 1fr;
+    .container {
+      padding: 0 20px;
+    }
+    
+    .location-header h2 {
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+    }
+    
+    .location-text p {
+      font-size: 1rem;
+    }
+    
+    .location-highlights {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .features-image {
+      min-height: 400px;
+    }
+    
+    .features-content h2 {
+      font-size: 2.6rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .features-content p {
+      font-size: 1.2rem;
+      max-width: 100%;
+    }
+    
+    .location-header h2 {
+      font-size: 2.4rem;
     }
   }
 </style>
+
+<script>
+  // Intersection Observer for fade-in animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.getAttribute('data-delay') || 0;
+          setTimeout(() => {
+            entry.target.classList.add('in-view');
+          }, delay * 1000);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    fadeElements.forEach(element => {
+      observer.observe(element);
+    });
+  });
+</script>
