@@ -27,30 +27,6 @@
   </div>
 </section>
 
-<section id="la-villa" class="section la-villa">
-  <div class="container">
-    <div class="project-grid reverse">
-      <div class="project-content fade-in">
-        <div class="intro-header">
-          <span class="section-tag">La Villa</span>
-          <h2>Un enclave con encanto<br>junto al mar</h2>
-        </div>
-        <p>Santoña, conocida como la "Villa Marinera", es un destino privilegiado en la costa cántabra. Rodeada de playas de ensueño y parques naturales, combina la riqueza de su patrimonio histórico con la belleza de sus paisajes costeros. Un lugar donde la tradición pesquera se funde con la gastronomía de vanguardia.</p>
-      </div>
-      <div class="project-image">
-        <div class="image-container">
-          <img 
-            src="/images/santona-vista.jpg" 
-            alt="Vista de Santoña y su bahía"
-            class="fade-in"
-            data-delay="0.2"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="caracteristicas" class="features-showcase">
   <div class="features-image">
     <img 
@@ -66,6 +42,48 @@
           recuperamos un edificio centenario para crear ocho viviendas únicas y dos locales comerciales. 
           Un proyecto que combina la riqueza patrimonial con las más altas calidades constructivas contemporáneas.
         </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="santona" class="section location">
+  <div class="container">
+    <div class="location-content fade-in">
+      <div class="location-header">
+        <span class="section-tag light">La Villa</span>
+        <h2>Santoña</h2>
+      </div>
+      <div class="location-text">
+        <p>Villa marinera enclavada entre el Mar Cantábrico y las marismas, Santoña es cabeza de las históricas Siete Villas de la Mar. Su patrimonio se extiende desde la iglesia románica de Santa María del Puerto hasta las fortificaciones que defendían su costa.</p>
+        <p>Mundialmente reconocida por sus anchoas artesanales, ofrece un entorno natural excepcional para la vela, el surf y el disfrute de playas únicas.</p>
+      </div>
+    </div>
+    <div class="location-highlights fade-in" data-delay="0.3">
+      <div class="highlight">
+        <div class="highlight-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span>Centro histórico</span>
+      </div>
+      <div class="highlight">
+        <div class="highlight-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12h18m-9-9l9 9-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span>Patrimonio cultural</span>
+      </div>
+      <div class="highlight">
+        <div class="highlight-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.5 19H9a7 7 0 117 7 7 7 0 01-7-7v-11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>Gastronomía marina</span>
       </div>
     </div>
   </div>
@@ -284,6 +302,167 @@
       top: auto;
       right: auto;
       padding: 3rem 2rem;
+    }
+  }
+
+  /* Location Section Styles */
+  .location {
+    background: var(--primary-darker);
+    color: var(--white);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .location-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .location-header {
+    position: relative;
+    display: inline-block;
+  }
+
+  .location-header h2 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -1px;
+    color: var(--white);
+  }
+
+  .section-tag.light {
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-tag.light::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--white);
+  }
+
+  .location-text {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .location-text p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    opacity: 0.95;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+  }
+
+  .location-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .location-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .highlight:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+
+  .highlight-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .highlight:hover .highlight-icon {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+
+  .highlight span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--white);
+    text-align: center;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 1024px) {
+    .features-overlay {
+      width: 50%;
+      padding: 3rem 2rem;
+    }
+    
+    .location-highlights {
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .features-overlay {
+      position: relative;
+      width: 100%;
+      margin: 0;
+      transform: none;
+      top: auto;
+      right: auto;
+      padding: 3rem 2rem;
+    }
+    
+    .location {
+      padding: 100px 0;
+    }
+    
+    .location-header h2 {
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+    }
+    
+    .location-text p {
+      font-size: 1rem;
+    }
+    
+    .location-highlights {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .location-header h2 {
+      font-size: 2.4rem;
     }
   }
 

@@ -1,0 +1,184 @@
+---
+// src/components/SantonaSection.astro
+---
+
+<section id="santona" class="section santona-section">
+  <div class="container">
+    <div class="santona-grid">
+      <div class="santona-content fade-in">
+        <div class="section-header">
+          <span class="section-tag">Santoña</span>
+          <h2>Villa marinera entre el mar y las marismas</h2>
+        </div>
+        <p class="santona-description">
+          Santoña, cabeza de las históricas Siete Villas de la Mar, se encuentra enclavada entre el Mar Cantábrico y las marismas. 
+          Su rico patrimonio abarca desde la iglesia románica de Santa María del Puerto hasta las imponentes fortificaciones que 
+          defendían su costa a lo largo de la historia.
+        </p>
+        <p class="santona-description">
+          Reconocida mundialmente por sus exquisitas anchoas artesanales, Santoña ofrece un entorno natural excepcional 
+          para la práctica de deportes náuticos como la vela y el surf, además de disfrutar de playas únicas de gran belleza.
+        </p>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">🏛️</div>
+            <h3>Centro histórico</h3>
+            <p>Descubre la rica historia que se esconde en cada rincón de la villa.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🏰</div>
+            <h3>Patrimonio cultural</h3>
+            <p>Explora monumentos y edificios que cuentan siglos de historia.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🍽️</div>
+            <h3>Gastronomía marina</h3>
+            <p>Disfruta de la mejor cocina marinera con productos locales.</p>
+          </div>
+        </div>
+      </div>
+      <div class="santona-image fade-in" data-delay="0.2">
+        <img 
+          src="/images/santona-panorama.jpg" 
+          alt="Vista panorámica de Santoña"
+          class="santona-main-image"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .santona-section {
+    padding: 100px 0;
+    background-color: #f9f9f9;
+  }
+
+  .santona-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .santona-content {
+    max-width: 600px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-tag {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary, #2c3e50);
+    margin-bottom: 15px;
+  }
+
+  .santona-section h2 {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--dark, #111);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .santona-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--gray-600, #555);
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .feature-item {
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .feature-item h3 {
+    font-size: 1.1rem;
+    margin: 0 0 10px 0;
+    color: var(--dark, #111);
+  }
+
+  .feature-item p {
+    font-size: 0.95rem;
+    color: var(--gray-600, #666);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .santona-image {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  .santona-main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .santona-image:hover .santona-main-image {
+    transform: scale(1.03);
+  }
+
+  /* Responsive styles */
+  @media (max-width: 1024px) {
+    .santona-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .santona-content {
+      max-width: 100%;
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .santona-section {
+      padding: 70px 0;
+    }
+
+    .santona-section h2 {
+      font-size: 2.2rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

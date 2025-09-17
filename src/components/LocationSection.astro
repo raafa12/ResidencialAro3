@@ -88,47 +88,7 @@
   </div>
 </section>
 
-<section id="santona" class="section location">
-  <div class="container">
-    <div class="location-content fade-in">
-      <div class="location-header">
-        <span class="section-tag light">La Villa</span>
-        <h2>Santoña</h2>
-      </div>
-      <div class="location-text">
-        <p>Villa marinera enclavada entre el Mar Cantábrico y las marismas, Santoña es cabeza de las históricas Siete Villas de la Mar. Su patrimonio se extiende desde la iglesia románica de Santa María del Puerto hasta las fortificaciones que defendían su costa.</p>
-        <p>Mundialmente reconocida por sus anchoas artesanales, ofrece un entorno natural excepcional para la vela, el surf y el disfrute de playas únicas.</p>
-      </div>
-    </div>
-    <div class="location-highlights fade-in" data-delay="0.3">
-      <div class="highlight">
-        <div class="highlight-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-        </div>
-        <span>Centro histórico</span>
-      </div>
-      <div class="highlight">
-        <div class="highlight-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 12h18m-9-9l9 9-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <span>Patrimonio cultural</span>
-      </div>
-      <div class="highlight">
-        <div class="highlight-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.5 19H9a7 7 0 117 7 7 7 0 01-7-7v-11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span>Gastronomía marina</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <style>
   .specifications {
@@ -145,51 +105,53 @@
   .spec-header {
     text-align: center;
     margin-bottom: 80px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .section-tag {
     display: inline-block;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: var(--primary);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     position: relative;
+    text-align: center;
+    width: 100%;
   }
 
   .section-tag::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
+    width: 50px;
     height: 2px;
     background: var(--primary);
   }
 
-  .section-tag.light {
-    color: var(--white);
-  }
-
-  .section-tag.light::after {
-    background: var(--white);
-  }
-
   .spec-header h2 {
-    font-size: 3rem;
-    color: var(--dark);
-    margin-bottom: 1.5rem;
-    letter-spacing: -1px;
+    font-size: 3.5rem;
     font-weight: 300;
+    color: var(--dark);
+    margin: 10px 0 1.5rem 0;
+    line-height: 1.2;
+    letter-spacing: -1px;
   }
 
   .spec-header p {
     font-size: 1.1rem;
-    color: var(--text-secondary);
+    line-height: 1.8;
+    color: var(--gray-600);
     font-weight: 300;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
   }
 
@@ -450,8 +412,8 @@
       padding: 30px 20px;
     }
     
-    .spec-header h2 {
-      font-size: 2.5rem;
+    .spec-header h3 {
+      font-size: 1.6rem;
     }
     
     .location-header h2 {
