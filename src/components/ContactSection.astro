@@ -3,96 +3,146 @@
 ---
 
 <section id="contacto" class="section contact">
-  <div class="fade-in">
-    <h2>Información</h2>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <h4>Ubicación</h4>
-        <p>Calle Aro 3<br>39740 Santoña<br>Cantabria</p>
+    <div class="contact-content fade-in">
+      <div class="contact-header">
+        <h5>Información</h5>
+        <h2>Contacto</h2>
       </div>
-      <div class="contact-item">
-        <h4>Promotor</h4>
-        <p>Desarrollos Singulares<br>del Norte, S.L.</p>
-      </div>
-      <div class="contact-item">
-        <h4>Proyecto</h4>
-        <p>8 Viviendas<br>2 Locales Comerciales<br>Rehabilitación integral</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <h6>Ubicación</h6>
+          <div class="contact-details">
+            <p>Calle Aro 3</p>
+            <p>39740 Santoña</p>
+            <p>Cantabria</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <h6>Promotor</h6>
+          <div class="contact-details">
+            <p>Desarrollos Singulares<br>del Norte, S.L.</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <h6>Proyecto</h6>
+          <div class="contact-details">
+            <p>8 Viviendas</p>
+            <p>2 Locales Comerciales</p>
+            <p>Rehabilitación integral</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<style>
-  .contact {
-    background: var(--cream);
-    text-align: center;
-    border-top: 1px solid var(--border);
-    padding: 100px 20px;
-  }
-
-  .contact h2 {
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--dark);
-    margin-bottom: 60px;
-    letter-spacing: -1px;
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .contact-item h4 {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--primary);
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-  }
-
-  .contact-item p {
-    color: var(--text-secondary);
-    font-weight: 300;
-    font-size: 0.95rem;
-    line-height: 1.8;
-  }
-
-  @media (max-width: 1024px) {
+  </section>
+  
+  <style>
     .contact {
-      padding: 80px 20px;
+      background: var(--white);
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
     }
-    
-    .contact-grid {
-      gap: 40px;
+  
+    .contact-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
     }
-  }
-
-  @media (max-width: 768px) {
-    .contact h2 {
-      font-size: 2.2rem;
-      margin-bottom: 40px;
+  
+    .contact-header {
+      text-align: center;
+      margin-bottom: 80px;
     }
-    
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      max-width: 400px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .contact h2 {
-      font-size: 2rem;
-    }
-    
-    .contact-item p {
+  
+    .contact-header h5 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
       font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
     }
-  }
-</style>
+  
+    .contact-header h2 {
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--text-primary);
+      margin-bottom: 0;
+      letter-spacing: -1px;
+    }
+  
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 80px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  
+    .contact-item {
+      text-align: center;
+    }
+  
+    .contact-item h6 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 25px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  
+    .contact-details p {
+      color: var(--text-secondary);
+      font-weight: 300;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+  
+    .contact-details p:last-child {
+      margin-bottom: 0;
+    }
+  
+    @media (max-width: 1024px) {
+      .contact {
+        padding: 80px 0;
+      }
+      
+      .contact-content {
+        padding: 0 40px;
+      }
+      
+      .contact-grid {
+        gap: 60px;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .contact {
+        padding: 60px 0;
+      }
+      
+      .contact-content {
+        padding: 0 20px;
+      }
+      
+      .contact-header {
+        margin-bottom: 60px;
+      }
+      
+      .contact-header h2 {
+        font-size: 2rem;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        max-width: 400px;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .contact-details p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
