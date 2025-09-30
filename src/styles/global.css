@@ -1,18 +1,19 @@
 /* Global Styles */
 :root {
-  /* Colors - Manteniendo la paleta original */
+  /* Colors - Paleta actualizada con más azul */
   --primary: #006790;
   --primary-dark: #014e6c;
   --primary-darker: #003249;
+  --accent-blue: #0088cc;
   --secondary: #8b7355;
   --dark: #1a1a1a;
   --light: #f8f9fa;
   --white: #ffffff;
   --cream: #faf9f7;
   --border: #e5e5e5;
-  --text-primary: #333333;
-  --text-secondary: #666666;
-  --text-light: #999999;
+  --text-primary: #000000; /* Cambiado a negro para mejor contraste */
+  --text-secondary: #333333; /* Oscurecido */
+  --text-light: #666666; /* Oscurecido */
   
   /* Gray scale */
   --gray-100: #f8f9fa;
@@ -20,10 +21,10 @@
   --gray-300: #dee2e6;
   --gray-400: #ced4da;
   --gray-500: #adb5bd;
-  --gray-600: #6c757d;
-  --gray-700: #495057;
-  --gray-800: #343a40;
-  --gray-900: #212529;
+  --gray-600: #4a4a4a; /* Oscurecido */
+  --gray-700: #333333;
+  --gray-800: #222222;
+  --gray-900: #111111;
   
   /* Typography */
   --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -67,7 +68,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-size: 1.6rem; /* 16px */
+  font-size: 1.7rem; /* Aumentado de 1.6rem a 1.7rem */
   line-height: 1.7;
   color: var(--text-primary);
   background-color: var(--white);
@@ -75,7 +76,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
+/* Typography - Tamaños aumentados */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 300;
@@ -108,12 +109,12 @@ h4 {
 }
 
 h5 { 
-  font-size: 2rem;
+  font-size: 2.2rem; /* Aumentado de 2rem */
   font-weight: 400;
 }
 
 h6 { 
-  font-size: 1.8rem;
+  font-size: 2rem; /* Aumentado de 1.8rem */
   font-weight: 500;
 }
 
@@ -122,6 +123,14 @@ p {
   line-height: 1.8;
   color: var(--text-secondary);
   font-weight: 300;
+  font-size: 1.8rem; /* Aumentado para mejor legibilidad */
+}
+
+/* Textos pequeños mejorados */
+small, .text-small {
+  font-size: 1.5rem; /* Aumentado de ~1.2-1.3rem */
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 a {
@@ -132,6 +141,11 @@ a {
 
 a:hover {
   color: var(--primary-dark);
+}
+
+a:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 img {
@@ -146,11 +160,11 @@ img {
   align-items: center;
   justify-content: center;
   padding: 1.4rem 3.2rem;
-  font-size: 1.4rem;
+  font-size: 1.5rem; /* Aumentado de 1.4rem */
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  border: 1px solid transparent;
+  border: 2px solid transparent; /* Borde más grueso */
   border-radius: 0;
   cursor: pointer;
   transition: var(--transition-slow);
@@ -159,6 +173,11 @@ img {
   overflow: hidden;
   background: transparent;
   font-family: var(--font-sans);
+}
+
+.btn:focus {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
 }
 
 .btn::before {
@@ -234,7 +253,7 @@ img {
 }
 
 .section-narrow {
-  padding: 8rem 0;
+  padding: 6rem 0; /* Reducido de 8rem */
   position: relative;
   overflow: hidden;
 }
@@ -245,14 +264,32 @@ img {
 
 /* Section */
 .section {
-  padding: 10rem 0;
+  padding: 8rem 0; /* Reducido de 10rem */
   position: relative;
   overflow: hidden;
 }
 
+/* Fondos azules alternados */
+.section.bg-blue {
+  background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+}
+
+.section.bg-blue h2,
+.section.bg-blue h3,
+.section.bg-blue h4,
+.section.bg-blue h5,
+.section.bg-blue h6 {
+  color: var(--white);
+}
+
+.section.bg-blue p {
+  color: rgba(255, 255, 255, 0.95);
+}
+
 .section-title {
   text-align: center;
-  margin-bottom: 8rem;
+  margin-bottom: 6rem; /* Reducido de 8rem */
   opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-slow);
@@ -265,7 +302,7 @@ img {
 
 .section-title .subtitle {
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.3rem; /* Aumentado de 1.2rem */
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -294,7 +331,7 @@ img {
 }
 
 .section-title p {
-  font-size: 1.1rem;
+  font-size: 1.9rem; /* Aumentado de 1.1rem */
   color: var(--text-secondary);
   font-weight: 300;
   max-width: 60rem;
@@ -386,11 +423,11 @@ img {
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   
   .section {
-    padding: 8rem 0;
+    padding: 6rem 0;
   }
   
   .section-title {
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
   }
   
   h1 { font-size: 5.6rem; }
@@ -406,7 +443,7 @@ img {
   }
   
   html {
-    font-size: 54%;
+    font-size: 56%;
   }
   
   .grid-4,
@@ -417,11 +454,11 @@ img {
   }
   
   .section {
-    padding: 6rem 0;
+    padding: 5rem 0;
   }
   
   .section-title {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
   
   .section-title h2 {
@@ -433,8 +470,8 @@ img {
   }
   
   .btn {
-    padding: 1.2rem 2.4rem;
-    font-size: 1.3rem;
+    padding: 1.3rem 2.6rem;
+    font-size: 1.4rem;
   }
   
   h1 { font-size: 4.8rem; }
@@ -450,11 +487,11 @@ img {
   }
   
   html {
-    font-size: 52%;
+    font-size: 54%;
   }
   
   .section {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
   
   .section-title {
@@ -470,8 +507,8 @@ img {
   }
   
   .btn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 1.2rem 2.2rem;
+    font-size: 1.3rem;
   }
   
   h1 { font-size: 4rem; }
@@ -486,24 +523,11 @@ img {
   }
   
   .section {
-    padding: 4rem 0;
+    padding: 3.5rem 0;
   }
   
   h1 { font-size: 3.6rem; }
   h2 { font-size: 2.8rem; }
-}
-
-/* Dark mode support (optional) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --dark: #ffffff;
-    --white: #1a1a1a;
-    --light: #2a2a2a;
-    --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-    --text-light: #999999;
-    --border: #404040;
-  }
 }
 
 /* Print styles */

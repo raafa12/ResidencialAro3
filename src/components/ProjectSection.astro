@@ -8,18 +8,18 @@
       <div class="project-content fade-in">
         <div class="intro-header">
           <span class="section-tag">El Proyecto</span>
-          <h2>Patrimonio y modernidad<br>en perfecta armonía</h2>
+          <h2>Patrimonio y modernidad en perfecta armonía</h2>
         </div>
-        <p>En el corazón de Santoña, junto al Ayuntamiento y la histórica Plaza de San Antonio, recuperamos un edificio centenario para crear ocho viviendas únicas y dos locales comerciales. Un proyecto que combina la riqueza patrimonial con las más altas calidades constructivas contemporáneas.</p>
+        <p>En el centro de Santoña, junto al Ayuntamiento y la histórica Plaza de San Antonio, recuperamos un edificio histórico para crear ocho viviendas únicas y dos locales comerciales. Un proyecto que combina la riqueza patrimonial con las más altas calidades constructivas contemporáneas.</p>
       </div>
       <div class="project-image">
         <div class="image-container">
-          <!-- Replace with your actual image path -->
           <img 
-            src="/images/exterior.jpg" 
-            alt="Edificio restaurado en Santoña"
+            src="/images/fachada.jpg" 
+            alt="Fachada completa del edificio histórico ARO 3 en Santoña"
             class="fade-in"
             data-delay="0.2"
+            loading="eager"
           />
         </div>
       </div>
@@ -31,24 +31,23 @@
   <div class="features-image">
     <img 
       src="/images/interiorr.jpg" 
-      alt="Vista del edificio por dentro"
+      alt="Interior elegante y moderno del edificio ARO 3"
       loading="lazy"
     />
     <div class="features-overlay">
       <div class="features-content">
-        <h2 class="fade-in">Lujo que se siente,<br>diseño que perdura</h2>
+        <h2 class="fade-in">Diseño contemporáneo y confort excepcional</h2>
         <p class="fade-in" data-delay="0.1">
-          Cada estancia está pensada para transmitir armonía y confort. La luz natural se funde con los acabados de alta gama, creando un ambiente sofisticado y acogedor. Detalles contemporáneos, espacios amplios y materiales selectos hacen de este piso un lugar exclusivo para disfrutar de Santoña con el máximo estilo.
+          Cada estancia está pensada para transmitir armonía y bienestar. La luz natural se funde con los acabados de alta gama, creando un ambiente sofisticado y acogedor. Detalles contemporáneos, espacios amplios y materiales selectos hacen de este edificio un lugar exclusivo para disfrutar de Santoña (Cantabria) con el máximo estilo.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-
 <style>
   .project-hero {
-    padding: 120px 0;
+    padding: 8rem 0;
     background: var(--white);
     overflow: hidden;
   }
@@ -66,12 +65,18 @@
     padding-right: 40px;
   }
 
-  .project-image {
-    position: relative;
-    height: 700px;
-    min-height: 700px;
-    box-shadow: none !important;
-  }
+  .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0%; /* enfoca arriba manteniendo el tamaño */
+  /* Si necesitas subirla aún más, descomenta la línea de abajo: */
+  /* transform: translateY(-10%); */
+  box-shadow: none !important;
+  transition: transform 1.2s cubic-bezier(0.2, 0.6, 0.2, 1);
+  will-change: transform;
+  display: block;
+}
 
   .image-container {
     position: relative;
@@ -79,28 +84,23 @@
     height: 100%;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: none !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
     transform: translateZ(0);
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important;
   }
 
   .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     box-shadow: none !important;
     transition: transform 1.2s cubic-bezier(0.2, 0.6, 0.2, 1);
     will-change: transform;
+    display: block;
   }
 
   .project-image:hover img {
     transform: scale(1.03);
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
   }
 
   .project-image::before {
@@ -118,7 +118,7 @@
   @media (max-width: 1024px) {
     .project-grid {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 50px;
     }
 
     .project-content {
@@ -127,16 +127,22 @@
     }
 
     .project-image {
-      margin-top: 40px;
-      height: 600px;
-      min-height: 600px;
+      margin-top: 0;
+      max-height: 600px;
     }
   }
 
   @media (max-width: 768px) {
+    .project-hero {
+      padding: 6rem 0;
+    }
+
+    .project-grid {
+      gap: 40px;
+    }
+
     .project-image {
-      height: 500px;
-      min-height: 500px;
+      max-height: 500px;
     }
   }
 
@@ -146,7 +152,7 @@
 
   .section-tag {
     display: block;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -166,7 +172,7 @@
   }
 
   .project-content h2 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     font-weight: 300;
     color: var(--dark);
     margin: 0 0 1.5rem 0;
@@ -175,9 +181,9 @@
   }
 
   .project-content p {
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     line-height: 1.8;
-    color: var(--gray-600);
+    color: var(--text-secondary);
     font-weight: 300;
     margin-bottom: 0;
   }
@@ -186,13 +192,16 @@
     position: relative;
     width: 100%;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
   }
 
   .features-image {
     position: relative;
     width: 100%;
-    height: 100vh;
-    min-height: 800px;
+    height: 85vh;
+    min-height: 600px;
+    max-height: 800px;
   }
 
   .features-image::before {
@@ -202,7 +211,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3); /* Subtle dark overlay */
+    background: rgba(0, 0, 0, 0.35);
     z-index: 1;
   }
 
@@ -210,7 +219,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     position: relative;
+    display: block;
   }
 
   .features-overlay {
@@ -226,7 +237,7 @@
     background: none;
     padding: 0 5%;
     color: white;
-    z-index: 2; /* Ensure text is above the overlay */
+    z-index: 2;
   }
 
   .features-content {
@@ -236,145 +247,44 @@
   }
 
   .features-content h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
+    font-size: 3.4rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 2rem;
     color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   }
 
   .features-content p {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .location {
-    background: var(--primary-darker);
-    color: var(--white);
-    padding: 120px 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .location-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .location-header {
-    position: relative;
-    display: inline-block;
-  }
-
-  .location-header h2 {
-    font-size: 3.5rem;
-    font-weight: 300;
-    margin: 0 0 1.5rem 0;
-    letter-spacing: -1px;
-    color: var(--white);
-  }
-
-  .section-tag.light {
-    color: rgba(255, 255, 255, 0.8);
-    position: relative;
-    display: block;
-    margin-bottom: 1.5rem;
-  }
-
-  .section-tag.light::after {
-    content: '';
-    position: absolute;
-    bottom: -0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 2px;
-    background: var(--white);
-  }
-
-  .location-text {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .location-text p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    opacity: 0.95;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-    color: var(--white);
-  }
-
-  .location-text p:last-child {
+    font-size: 1.8rem;
+    line-height: 1.7;
     margin-bottom: 0;
-  }
-
-  .location-highlights {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .highlight {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-  }
-
-  .highlight:hover {
-    opacity: 1;
-    transform: translateY(-2px);
-  }
-
-  .highlight-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .highlight:hover .highlight-icon {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
-  }
-
-  .highlight span {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--white);
-    text-align: center;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   }
 
   @media (max-width: 1024px) {
+    .features-image {
+      height: 80vh;
+      min-height: 550px;
+    }
+
     .features-overlay {
-      width: 70%;
-      padding: 0 5%;
+      width: 65%;
+      padding: 0 4%;
     }
     
     .features-content {
       max-width: 100%;
       padding: 0 20px;
     }
-    
-    .location-highlights {
-      gap: 40px;
+
+    .features-content h2 {
+      font-size: 3rem;
+    }
+
+    .features-content p {
+      font-size: 1.7rem;
     }
   }
 
@@ -389,6 +299,7 @@
       width: 100%;
       height: 100vh;
       min-height: 100vh;
+      max-height: none;
     }
 
     .features-image img {
@@ -415,40 +326,41 @@
       width: 100%;
       color: white;
       text-align: center;
-      padding: 0;
+      padding: 0 20px;
     }
 
     .features-content h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
+      font-size: 2.6rem;
+      margin-bottom: 1.8rem;
+      line-height: 1.3;
       color: white;
       text-align: center;
     }
 
     .features-content p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: 1.6rem;
+      line-height: 1.7;
       margin-bottom: 0;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.95);
       text-align: center;
     }
-
-    /* Adjust for very small screens */
-    @media (max-width: 480px) {
-      .features-content h2 {
-        font-size: 1.8rem;
-      }
-      
-      .features-content p {
-        font-size: 1rem;
-      }
-    }
   }
-  
+
   @media (max-width: 480px) {
-    .location-header h2 {
-      font-size: 2.4rem;
+    .project-content h2 {
+      font-size: 3.2rem;
+    }
+
+    .project-content p {
+      font-size: 1.7rem;
+    }
+
+    .features-content h2 {
+      font-size: 2.2rem;
+    }
+    
+    .features-content p {
+      font-size: 1.5rem;
     }
   }
 
