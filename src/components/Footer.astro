@@ -4,37 +4,193 @@
 
 <footer class="footer">
   <div class="footer-content">
-    <p>© 2025 Desarrollos Singulares del Norte, S.L. — Todos los derechos reservados</p>
+    <div class="footer-main">
+      <div class="footer-logo-section">
+        <h3 class="footer-logo">ARO 3</h3>
+        <p class="footer-subtitle">Santoña, Cantabria</p>
+      </div>
+      <nav class="footer-nav" aria-label="Navegación del footer">
+        <a href="#proyecto" class="footer-nav-link">Proyecto</a>
+        <a href="#galeria" class="footer-nav-link">Galería</a>
+        <a href="#santona-info" class="footer-nav-link">Ubicación</a>
+        <a href="#calidades" class="footer-nav-link">Calidades</a>
+        <a href="#contacto" class="footer-nav-link">Contacto</a>
+      </nav>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p class="footer-text">© 2025 Desarrollos Singulares del Norte, S.L. — Todos los derechos reservados</p>
+    </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: var(--white);
-    padding: 40px 20px;
-    text-align: center;
-    border-top: 1px solid var(--border);
+    background: var(--primary-darker);
+    color: var(--white);
+    padding: 40px 0 30px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary-dark) 100%);
+    opacity: 0.9;
   }
 
   .footer-content {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 60px;
+    position: relative;
+    z-index: 2;
   }
 
-  .footer p {
-    color: var(--text-light);
-    font-size: 0.85rem;
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .footer-logo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--white);
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  .footer-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 300;
+    margin: 0;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .footer-nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
     letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .footer-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--white);
+    transition: width 0.3s ease;
+  }
+
+  .footer-nav-link:hover {
+    color: var(--white);
+  }
+
+  .footer-nav-link:hover::after {
+    width: 100%;
+  }
+
+  .footer-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+
+  .footer-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin: 0;
+    letter-spacing: 0.3px;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-content {
+      padding: 0 40px;
+    }
+
+    .footer-nav {
+      gap: 25px;
+    }
   }
 
   @media (max-width: 768px) {
     .footer {
-      padding: 30px 20px;
+      padding: 35px 0 25px;
     }
-    
-    .footer p {
-      font-size: 0.8rem;
+
+    .footer-content {
+      padding: 0 20px;
+    }
+
+    .footer-main {
+      flex-direction: column;
+      gap: 25px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .footer-nav {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .footer-divider {
+      margin-bottom: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-logo {
+      font-size: 1.8rem;
+    }
+
+    .footer-subtitle {
+      font-size: 0.85rem;
+    }
+
+    .footer-nav {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-nav-link {
+      font-size: 0.85rem;
+    }
+
+    .footer-text {
+      font-size: 0.75rem;
     }
   }
 </style>
