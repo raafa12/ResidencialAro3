@@ -343,11 +343,30 @@
 
       // Close menu when clicking a link
       document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
           if (navMenu.classList.contains('active')) {
             menuToggle.classList.remove('open');
             navMenu.classList.remove('active');
             document.body.style.overflow = '';
+          }
+          
+          // Smooth scroll with offset for anchor links
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+              const navbarHeight = document.getElementById('navbar')?.offsetHeight || 80;
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
+              
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
+            }
           }
         });
       });

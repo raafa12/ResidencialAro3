@@ -1,25 +1,24 @@
 ---
-// Componente ProjectSection
+// Componente ProjectSection unificado
 ---
 
+<!-- Sección Proyecto -->
 <section id="proyecto" class="section project-hero">
   <div class="container">
     <div class="project-grid">
-      <div class="project-content fade-in">
-        <div class="intro-header">
+      <div class="project-content">
+        <div class="intro-header fade-in" data-delay="0.1">
           <span class="section-tag">El Proyecto</span>
           <h2>Patrimonio y modernidad en perfecta armonía</h2>
         </div>
-        <p>En el centro de Santoña (Cantabria), junto al Ayuntamiento y la histórica Plaza de San Antonio, recuperamos un edificio histórico para crear ocho viviendas únicas y dos locales comerciales. Un proyecto que combina la riqueza patrimonial con las más altas calidades constructivas contemporáneas.</p>
+        <p class="fade-in" data-delay="0.2">En el centro de Santoña (Cantabria), junto al Ayuntamiento y la histórica Plaza de San Antonio, recuperamos un edificio histórico para crear ocho viviendas únicas y dos locales comerciales. Un proyecto que combina la riqueza patrimonial con las más altas calidades constructivas contemporáneas.</p>
       </div>
-      <div class="project-image">
+      <div class="project-image fade-in" data-delay="0.3">
         <div class="image-container">
           <img 
             src="/images/fachada.jpg" 
             alt="Fachada completa del edificio histórico ARO 3 en Santoña"
-            class="fade-in"
-            data-delay="0.2"
-            loading="eager"
+            loading="lazy"
           />
         </div>
       </div>
@@ -27,19 +26,49 @@
   </div>
 </section>
 
+<!-- Sección de Diseño -->
+<section class="section design-section">
+  <div class="container">
+    <div class="design-grid">
+      <div class="design-image">
+        <div class="image-container">
+          <img 
+            src="/images/buhardilla.jpg" 
+            alt="Diseño de interiores de lujo en Residencial ARO 3"
+            class="fade-in"
+            data-delay="0.4"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <div class="design-content fade-in" data-delay="0.5">
+        <h2>Diseño que perdura, espacios que inspiran.</h2>
+        <p>Cada estancia ha sido pensada para transmitir equilibrio y calidez. La luz natural se funde con los acabados de alta gama, creando una atmósfera acogedora. Con líneas modernas, amplitud, altura y materiales cuidadosamente elegidos, este piso es el lugar ideal para disfrutar de Santoña con estilo propio y gusto por los detalles.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <style>
-  .project-hero {
+  /* Estilos comunes */
+  .section {
     padding: 8rem 0;
     background: var(--white);
     overflow: hidden;
   }
 
+  .container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Estilos para la sección de proyecto */
   .project-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-    max-width: 100%;
     margin: 0;
     padding: 0;
   }
@@ -53,38 +82,95 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-image.visible {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .project-image img {
     width: 100%;
     max-height: 80vh;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-    box-shadow: none !important;
     transition: transform 1.2s cubic-bezier(0.2, 0.6, 0.2, 1);
     will-change: transform;
-    display: block;
-    margin: 0;
-    padding: 0;
+  }
+
+  .project-image:hover img {
+    transform: scale(1.02);
   }
 
   .image-container {
     position: relative;
     width: 100%;
-    max-height: 80vh;
+    height: 100%;
     overflow: hidden;
-    border-radius: 0;
-    box-shadow: none !important;
-    transform: translateZ(0);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
-    padding: 0;
   }
 
+  /* Estilos para la sección de diseño */
+  .design-section {
+    background-color: var(--light);
+  }
+
+  .design-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .design-content {
+    max-width: 600px;
+    padding-left: 40px;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .design-content.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .design-image {
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+  }
+
+  .design-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1.2s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+
+  .design-image:hover img {
+    transform: scale(1.02);
+  }
+
+  /* Estilos de tipografía */
   .intro-header {
     margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .intro-header.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .section-tag {
@@ -96,6 +182,14 @@
     color: var(--primary);
     margin-bottom: 15px;
     position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease 0.1s;
+  }
+
+  .section-tag.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .section-tag::after {
@@ -106,27 +200,53 @@
     width: 50px;
     height: 2px;
     background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s ease 0.2s;
   }
 
-  .project-content h2 {
+  .section-tag.visible::after {
+    transform: scaleX(1);
+  }
+
+  h2 {
     font-size: 3.8rem;
     font-weight: 300;
     color: var(--dark);
     margin: 0 0 1.5rem 0;
     line-height: 1.2;
     letter-spacing: -1px;
+    font-family: var(--font-serif);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease 0.2s;
   }
 
-  .project-content p {
+  h2.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  p {
     font-size: 1.8rem;
     line-height: 1.8;
     color: var(--text-secondary);
     font-weight: 300;
     margin-bottom: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease 0.3s;
   }
 
+  p.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Estilos responsivos */
   @media (max-width: 1024px) {
-    .project-grid {
+    .project-grid,
+    .design-grid {
       grid-template-columns: 1fr;
       gap: 40px;
     }
@@ -135,5 +255,83 @@
       padding-right: 0;
       max-width: 100%;
     }
+
+    .design-content {
+      padding-left: 0;
+      max-width: 100%;
+    }
+
+    .design-image {
+      height: 60vh;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 3.2rem;
+    }
+
+    p {
+      font-size: 1.7rem;
+    }
+
+    .section {
+      padding: 6rem 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 2.8rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
   }
 </style>
+<script>
+  // Intersection Observer para animaciones al hacer scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const animateOnScroll = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.classList.contains('fade-in')) {
+            const delay = entry.target.getAttribute('data-delay') || '0';
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }, parseFloat(delay) * 1000);
+          } else {
+            entry.target.classList.add('visible');
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(animateOnScroll, observerOptions);
+
+    // Observar elementos con clase fade-in
+    document.querySelectorAll('.fade-in').forEach(element => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(20px)';
+      element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      observer.observe(element);
+    });
+
+    // Observar elementos específicos para animar
+    const elementsToAnimate = [
+      ...document.querySelectorAll('.project-image, .intro-header, .section-tag, h2, p, .design-content')
+    ];
+
+    elementsToAnimate.forEach(element => {
+      if (element) observer.observe(element);
+    });
+  });
+</script>

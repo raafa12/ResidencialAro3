@@ -4,8 +4,8 @@
 
 <section id="galeria" class="section-narrow gallery">
   <div class="gallery-header fade-in">
-    <h5>Galería</h5>
-    <h2>Espacios únicos</h2>
+    <span class="section-tag">GALERÍA</span>
+    <p class="gallery-subtitle"><h2>Espacios únicos</h2></p>
   </div>
   <div class="gallery-grid">
     <div class="gallery-item large fade-in" data-delay="0">
@@ -73,6 +73,45 @@
         </div>
       </div>
     </div>
+    <div class="gallery-item fade-in" data-delay="0.3">
+      <div class="image-placeholder">
+        <img 
+          src="/images/portal.jpg" 
+          alt="Baño completo con acabados premium"
+          loading="lazy"
+        />
+        <div class="image-overlay">
+          <span class="image-title">Portal</span>
+          <p class="image-subtitle">Calidad y diseño contemporáneo</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-item fade-in" data-delay="0.3">
+      <div class="image-placeholder">
+        <img 
+          src="/images/santoña2.jpg" 
+          alt="Pasillo luminoso con acabados elegantes"
+          loading="lazy"
+        />
+        <div class="image-overlay">
+          <span class="image-title">Playas de Santoña</span>
+          <p class="image-subtitle">Espacios con encanto</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-item fade-in" data-delay="0.4">
+      <div class="image-placeholder">
+        <img 
+          src="/images/santoña1.jpg" 
+          alt="Detalles arquitectónicos del edificio"
+          loading="lazy"
+        />
+        <div class="image-overlay">
+          <span class="image-title">Zonas marítimas</span>
+          <p class="image-subtitle">Arquitectura con carácter</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -92,20 +131,43 @@
     margin-bottom: 5rem;
   }
 
-  .gallery-header h5 {
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
+  .section-tag {
+    display: inline-block;
+    font-size: 1.1rem;
     font-weight: 500;
-    letter-spacing: 0.2em;
     text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary);
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  .section-tag::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--primary);
   }
 
   .gallery-header h2 {
     font-size: 3.8rem;
     color: var(--text-primary);
-    margin-bottom: 0;
+    margin: 25px 0 15px 0;
     font-weight: 300;
+    letter-spacing: -1px;
+  }
+
+  .gallery-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .gallery-grid {
@@ -128,24 +190,34 @@
     grid-row: span 1;
   }
 
-  /* Cuarta y quinta: fila inferior */
+  /* Cuarta y quinta: fila intermedia */
   .gallery-item:nth-child(4),
   .gallery-item:nth-child(5) {
     grid-column: span 6;
     grid-row: span 1;
   }
 
+  /* Sexta, séptima y octava: fila inferior */
+  .gallery-item:nth-child(6),
+  .gallery-item:nth-child(7),
+  .gallery-item:nth-child(8) {
+    grid-column: span 4;
+    grid-row: span 1;
+  }
+
   .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 8px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     min-height: 280px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   }
 
   .gallery-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+    z-index: 10;
   }
 
   .image-placeholder {
@@ -154,6 +226,24 @@
     position: relative;
     overflow: hidden;
     background: var(--cream);
+  }
+
+  .image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--primary) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .gallery-item:hover .image-placeholder::before {
+    opacity: 0.1;
   }
 
   .gallery-item img {
@@ -175,12 +265,13 @@
     left: 0;
     right: 0;
     padding: 30px 25px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
     color: white;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
+    z-index: 2;
   }
 
   .gallery-item:hover .image-overlay {
@@ -218,6 +309,11 @@
     transform: translateY(0);
   }
 
+  .fade-in[data-delay="0.1"] { transition-delay: 0.1s; }
+  .fade-in[data-delay="0.2"] { transition-delay: 0.2s; }
+  .fade-in[data-delay="0.3"] { transition-delay: 0.3s; }
+  .fade-in[data-delay="0.4"] { transition-delay: 0.4s; }
+
   @media (max-width: 1024px) {
     .section-narrow {
       padding: 6rem 40px;
@@ -236,7 +332,10 @@
     .gallery-item:nth-child(2),
     .gallery-item:nth-child(3),
     .gallery-item:nth-child(4),
-    .gallery-item:nth-child(5) {
+    .gallery-item:nth-child(5),
+    .gallery-item:nth-child(6),
+    .gallery-item:nth-child(7),
+    .gallery-item:nth-child(8) {
       grid-column: span 6;
       grid-row: span 1;
     }
@@ -254,6 +353,10 @@
     .gallery-header h2 {
       font-size: 3.2rem;
     }
+
+    .gallery-subtitle {
+      font-size: 1rem;
+    }
     
     .gallery-grid {
       grid-template-columns: 1fr;
@@ -265,7 +368,10 @@
     .gallery-item:nth-child(2),
     .gallery-item:nth-child(3),
     .gallery-item:nth-child(4),
-    .gallery-item:nth-child(5) {
+    .gallery-item:nth-child(5),
+    .gallery-item:nth-child(6),
+    .gallery-item:nth-child(7),
+    .gallery-item:nth-child(8) {
       grid-column: span 1;
       grid-row: span 1;
     }
@@ -288,8 +394,12 @@
       font-size: 2.8rem;
     }
 
-    .gallery-header h5 {
-      font-size: 1.1rem;
+    .section-tag {
+      font-size: 1rem;
+    }
+
+    .gallery-subtitle {
+      font-size: 0.95rem;
     }
     
     .gallery-grid {
