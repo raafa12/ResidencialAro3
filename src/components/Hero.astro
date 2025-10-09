@@ -11,7 +11,7 @@
       <div class="hero-kicker fade-in">Residencial</div>
       <h1 class="fade-in delay-200">ARO 3</h1>
       <h2 class="fade-in delay-400">Santoña (Cantabria)</h2>
-      <p class="fade-in delay-600">Un edificio histórico en el centro de Santoña, villa emblemática del cantábrico</p>
+      <p class="fade-in delay-600">Un edificio histórico en el centro de Santoña, villa emblemática del Cantábrico</p>
       <div class="hero-cta fade-in delay-800">
         <a href="#proyecto" class="btn btn-primary" aria-label="Descubrir más sobre el proyecto ARO 3">
           <span>Descubre más</span>
@@ -130,15 +130,32 @@
   }
 
   .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--primary-darker) url('/assets/hero-bg.jpg') no-repeat center center;
-    background-size: cover;
-    z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary-darker) url('/assets/hero-bg.jpg') no-repeat;
+  background-size: 120%;        /* zoom ligero para escritorio */
+  background-position: right center; /* enfoca a la derecha */
+  z-index: 0;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .hero-background {
+    background-size: 130%;          /* un poco más de zoom */
+    background-position: right 20% center; /* mueve un poco más a la derecha */
   }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .hero-background {
+    background-size: 150%;          /* más zoom para pantallas pequeñas */
+    background-position: right 30% center; /* fuerza aún más el encuadre */
+  }
+}
 
   /* Animation classes */
   .fade-in {

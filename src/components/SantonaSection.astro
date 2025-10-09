@@ -15,7 +15,28 @@
       </div>
     </div>
     
-    <div class="location-highlights fade-in" data-delay="0.2">
+    <div class="location-gallery fade-in" data-delay="0.2">
+      <div class="gallery-item">
+        <img src="/images/surfer.jpg" alt="Surf en Santoña" loading="lazy">
+        <div class="gallery-overlay">
+          <span>Surf</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/images/berria.jpg" alt="Playa de Berria" loading="lazy">
+        <div class="gallery-overlay">
+          <span>Playa de Berria</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/images/acantilados.jpg" alt="Acantilados de Santoña" loading="lazy">
+        <div class="gallery-overlay">
+          <span>Acantilados</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="location-highlights fade-in" data-delay="0.3">
       <div class="highlight">
         <div class="highlight-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +73,7 @@
       </div>
     </div>
     
-    <div class="map-container fade-in" data-delay="0.3">
+    <div class="map-container fade-in" data-delay="0.4">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2903.8359847832847!2d-3.4505!3d43.4445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd493e0c0c0c0c0c%3A0x0!2sCalle%20Aro%203%2C%2039740%20Santo%C3%B1a%2C%20Cantabria!5e0!3m2!1ses!2ses!4v1234567890"
         width="100%"
@@ -68,65 +89,6 @@
 </section>
 
 <style>
-  .features-showcase {
-    position: relative;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .features-image {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    overflow: hidden;
-  }
-
-  .features-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .features-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .features-content {
-    max-width: 800px;
-    padding: 0 2rem;
-    color: white;
-    text-align: center;
-  }
-
-  .features-content h2 {
-    font-size: 4.8rem;
-    font-weight: 300;
-    line-height: 1.2;
-    margin: 0 0 2rem 0;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    letter-spacing: -0.01em;
-  }
-
-  .features-content p {
-    font-size: 1.8rem;
-    line-height: 1.7;
-    margin: 0 auto 2rem;
-    max-width: 700px;
-    font-weight: 300;
-  }
-
-  /* Location section styles - copied from ProjectSection */
   .location {
     background: var(--primary-darker);
     color: var(--white);
@@ -212,6 +174,66 @@
     margin-bottom: 0;
   }
 
+  .location-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+    margin: 60px 0 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gallery-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.1);
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+
+  .gallery-overlay span {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
   .map-container {
     position: relative;
     z-index: 2;
@@ -288,15 +310,6 @@
   }
 
   @media (max-width: 1024px) {
-    .features-content h2 {
-      font-size: 4rem;
-    }
-    
-    .features-content p {
-      font-size: 1.6rem;
-      max-width: 600px;
-    }
-
     .container {
       padding: 0 40px;
     }
@@ -308,23 +321,14 @@
     .map-container {
       margin: 50px auto;
     }
+
+    .location-gallery {
+      gap: 20px;
+      margin: 50px 0 40px;
+    }
   }
 
   @media (max-width: 768px) {
-    .features-image {
-      height: 70vh;
-      min-height: 500px;
-    }
-    
-    .features-content h2 {
-      font-size: 3.2rem;
-    }
-    
-    .features-content p {
-      font-size: 1.4rem;
-      max-width: 500px;
-    }
-
     .location {
       padding: 80px 0;
     }
@@ -354,23 +358,15 @@
       flex-direction: column;
       gap: 30px;
     }
+
+    .location-gallery {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 40px 0 30px;
+    }
   }
 
   @media (max-width: 480px) {
-    .features-image {
-      min-height: 400px;
-    }
-    
-    .features-content h2 {
-      font-size: 2.6rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .features-content p {
-      font-size: 1.2rem;
-      max-width: 100%;
-    }
-    
     .location-header h2 {
       font-size: 2.4rem;
     }
